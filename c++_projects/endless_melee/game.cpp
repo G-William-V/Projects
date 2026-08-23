@@ -11,7 +11,8 @@ void Game::combat() {
     int input;
     while (npc -> isAlive()) {
         std::cout << "You are met by " << npc ->getName() << " preapre yourself for a fight!!!\n";
-        std::cout << "Pick your action\n" << "1. Attack\n" << "2. Heal\n" << "3. Use Item\n";
+        std::cout << "YOUR HEALTH IS " << player->getHealth() << " YOUR ATTACK IS " << player->getAttack() << "\n";
+        std::cout << "Pick your action\n" << "1. Attack\n" << "2. Block\n" << "3. Use Item\n";
         std::cin >> input;
         switch (input) {
             case 1:
@@ -32,7 +33,10 @@ void Game::combat() {
                     }
                 break;
             case 2:
-                std::cout << "you heal!";
+                std::cout << "you block the incoming attack!";
+                player ->takeDamage(player ->blockDamage(npc ->getAttack()));
+                std::cout << "You have block " << npc-> getName() << " they dealt you this much damage " << player->blockDamage(npc->getAttack()) << "\n";
+                std::cout << "You have recover by " << player ->getHealing() << " health";
                 break;
             case 3:
                 std::cout << "you use a item!";

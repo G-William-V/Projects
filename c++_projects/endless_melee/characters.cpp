@@ -9,7 +9,8 @@ NPC enemy5 = NPC("Litch", 300, 25);
 
 NPC::NPC (std::string _name, int _health, int _attack) {
     name = _name;
-    health = _health;
+    currentHealth = _health;
+    maxHealth = _health;
     attack = _attack;
 }
 
@@ -20,7 +21,7 @@ std::string NPC::getName() {
 }
 
 int NPC::getHealth() {
-    return health;
+    return currentHealth;
 }
 
 int NPC::getAttack() {
@@ -28,15 +29,31 @@ int NPC::getAttack() {
 }
 
 int NPC::isAlive() {
-    return health > 0;
+    return currentHealth > 0;
 }
 
 void NPC::takeDamage(int amount) {
-    health -= amount;
+    currentHealth -= amount;
+}
+
+int Player::blockDamage(int amount) {
+    int block = getAttack() / 2;
+    return block;
+}
+
+int Player::getHealing() {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dist(5, 10);
+    int amount = dist(gen);
+    return amount;
 }
 
 void Player::heal(int amount) {
-    health += amount;
+    currentHealth += amount;
+    if (currentHealth > maxHealth) {
+        currentHealth = maxHealth;
+    }
 }
 /*int Player::getItem(int item) {
     int i;

@@ -4,7 +4,8 @@ class NPC {
     private:
         std::string name;
     protected:
-        int health;
+        int maxHealth;
+        int currentHealth;
         int attack;
     public:
         NPC(std::string, int, int);
@@ -20,5 +21,7 @@ class Player: public NPC {
     public:
         Player(std::string, int, int);
         void heal(int);
+        int getHealing();
+        int blockDamage(int);
         int getItem(int);
 };
