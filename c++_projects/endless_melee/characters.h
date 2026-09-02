@@ -1,5 +1,8 @@
 #include <string>
 
+#ifndef CHARACTER_H
+#define CHARACTER_H
+
 class NPC {
     private:
         std::string name;
@@ -25,3 +28,5 @@ class Player: public NPC {
         int blockDamage(int);
         int getItem(int);
 };
+
+#endif

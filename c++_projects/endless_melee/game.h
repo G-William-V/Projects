@@ -2,6 +2,9 @@
 #include "items.h"
 #include <iostream>
 
+#ifndef GAME_H
+#define GAME_H
+
 class Game {
     private:
         NPC * npc;
@@ -13,7 +16,9 @@ class Game {
         Game(NPC *, Player *);
 
         void combat();
-        void useItem();
-        void reward();
-        void invertory();
+        void getItem();
+        void itemDrop();
+        void inventory();
 };
+
+#endif
