@@ -6,9 +6,6 @@ Game::Game(NPC * _npc, Player * _player){
 
     gameIsOver = false;
 }
-//remove devItem object after inventory management is implemented
-devItem dagger = devItem(0, 100);
-devItem healthPotion = devItem(100, 0);
 
 void Game::combat() {
     int input;
@@ -46,12 +43,10 @@ void Game::combat() {
 				std::cin >> input;
 				switch (input) {
 				case 1:
-					std::cout << "You have used a health potion and recovered 100 health!";
-					player->heal(healthPotion.getItemHealth());
+					std::cout << 
 					break;
 				case 2:
-					std::cout << "You throw a dagger at the enemy!";
-					npc->takeDamage(dagger.getItemAttack());
+					std::cout <<
 					break;
 				default:
 					std::cout << "You desided not to use any items.";

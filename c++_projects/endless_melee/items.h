@@ -5,13 +5,17 @@
 #ifndef ITEMS_H
 #define ITEMS_H
 
-class devItem {
-	int itemAttack;
+class item {
+private:
+	std::string itemName;
 	int itemHealth;
+	int itemAttack;
 public:
-	int getItemAttack();
+	std::string getItemName();
 	int getItemHealth();
-	devItem(int itemHealth, int itemAttack);
+	int getItemAttack();
+	item(std::string itemName, int itemHealth, int itemAttack);
+	item itemDrop();
 };
 
 #endif
